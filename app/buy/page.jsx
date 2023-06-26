@@ -2,7 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faSearch, faFile, faDesktop, faArrowAltCircleRight, faEnvelope} from '@fortawesome/free-solid-svg-icons'
-const page = () => {
+const Buy = () => {
+  const config = {
+    DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
+  }
   return (
     <section 
       className="tw-min-h-[calc(100vh-56px-74px)] tw-relative tw-py-12 tw-flex tw-w-full tw-items-center tw-bg-white"
@@ -10,7 +13,7 @@ const page = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-12 tw-text-center">
-            <h1 className="tw-text-5xl font-800">Devfund.net</h1>
+            <h1 className="tw-text-5xl font-800">{config.DOMAIN}</h1>
             <p className="tw-text-2xl">
               <a href="https://contrib.com/" className="tw-no-underline text-primary">
               Proud Member of CONTRIB
@@ -289,4 +292,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Buy

@@ -2,7 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck} from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import Link from 'next/link'
-const pages = () => {
+const Partner = () => {
+  const config = {
+    DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
+  }
   return (
     <section 
       className="tw-min-h-[calc(100vh-56px-74px)] tw-relative tw-py-12 tw-flex tw-w-full tw-items-center tw-bg-white"
@@ -236,4 +239,4 @@ const pages = () => {
   )
 }
 
-export default pages
+export default Partner

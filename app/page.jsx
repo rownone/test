@@ -1,9 +1,27 @@
 import Link from "next/link"
-
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
-export default function Home() {
+import Logo from '../components/logo';
 
+const config = {
+  DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
+}
+
+async function getData() {
+  const url = `https://api1.contrib.co/v2/domains/getdomainconfig?key=5c1bde69a9e783c7edc2e603d8b25023&domain=${config.DOMAIN}`
+  const res = await fetch(url)
+  
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
+export default async function Home() {
+  const data = await getData();
+  console.log('data',data)
   return (
     <>
       <Navigation />
@@ -15,7 +33,7 @@ export default function Home() {
         <div className="container tw-relative">
           <div className="row tw-mb-8">
             <div className="col-xl-12 tw-text-center">
-              <h1 className="tw-text-5xl font-800">Devfund.net</h1>
+              <Logo />
               <p className="tw-text-2xl">
                 <a href="https://contrib.com/" className="tw-no-underline text-primary">
                 Proud Member of CONTRIB
@@ -34,7 +52,7 @@ export default function Home() {
                   Buy
                 </h3>
                 <h4 className="tw-flex tw-mb-5 tw-flex-col tw-text-lg tw-font-medium tw-text-gray-500">
-                  Devfund.net
+                  {config.DOMAIN}
                 </h4>
                 <div className="mb-3 d-grid">
                   <Link href="/buy" className="btn btn-primary btn-lg"> Make An Offer </Link>
@@ -48,7 +66,7 @@ export default function Home() {
                   PARTNER
                 </h3>
                 <h4 className="tw-flex tw-mb-5 tw-flex-col tw-text-lg tw-font-medium tw-text-gray-500">
-                  Devfund.net
+                  {config.DOMAIN}
                 </h4>
                 <div className="mb-3 d-grid">
                   <Link href="/partner" className="btn btn-primary btn-lg"> Submit Partnership </Link>
@@ -62,12 +80,12 @@ export default function Home() {
                   JOIN
                 </h3>
                 <h4 className="tw-flex tw-mb-5 tw-flex-col tw-text-lg tw-font-medium tw-text-gray-500">
-                  Devfund.net Community
+                  {config.DOMAIN} Community
                 </h4>
                 <div className="mb-3 d-grid">
-                  <a target="_blank" href="https://www.contrib.com/signup/firststep?domain=devfund.net" className="btn btn-primary btn-lg"> Join Now </a>
+                  <a target="_blank" href={"https://www.contrib.com/signup/firststep?domain="+config.DOMAIN} className="btn btn-primary btn-lg"> Join Now </a>
                 </div>
-                <p>Join our community of 150,000 <br /> Devfund.net members over at Contrib.</p>
+                <p>Join our community of 150,000 <br /> {config.DOMAIN} members over at Contrib.</p>
               </div>
             </div>
           </div>
