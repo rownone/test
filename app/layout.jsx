@@ -7,7 +7,7 @@ const config = {
 
 export const metadata = {
   title: 'Welcome to Contrib.com',
-  description: 'Contrib.com - Join our exclusive community of like minded people on contrib.com',
+  description: 'Contrib.com - Join our exclusive community of like minded people on contrib.com'
 }
 
 export async function generateMetadata({ params, searchParams }, parent) {

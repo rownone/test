@@ -3,7 +3,7 @@ import Link from "next/link"
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
 export default function Home() {
-  console.log('home')
+
   return (
     <>
       <Navigation />
