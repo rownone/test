@@ -3,12 +3,10 @@ import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-const config = {
-  DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
-}
+import { getDomain } from '../lib/data';
 
 const navigation = () => {
-  let domain = config.DOMAIN;
+  const domain = getDomain();
   return (
     <Navbar bg="primary" variant="dark" expand="lg">
       <Container>

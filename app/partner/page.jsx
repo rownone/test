@@ -1,11 +1,14 @@
+"use client";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck} from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import Link from 'next/link'
+import Logo from '../../components/logo';
+import { getDomain } from '../../lib/data';
+
 const Partner = () => {
-  const config = {
-    DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
-  }
+  const domain = getDomain();
   return (
     <section 
       className="tw-min-h-[calc(100vh-56px-74px)] tw-relative tw-py-12 tw-flex tw-w-full tw-items-center tw-bg-white"
@@ -13,7 +16,7 @@ const Partner = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-12 tw-text-center">
-            <h1 className="tw-text-5xl font-800">Devfund.net</h1>
+            <Logo />
             <p className="tw-text-2xl">
               <a href="https://contrib.com/" className="tw-no-underline text-primary">
               Proud Member of CONTRIB
@@ -71,7 +74,7 @@ const Partner = () => {
                 {/* Start:: Step 1 */}
                 <div className="row ">
                   <div className="col-xl-12 tw-text-center mb-3">
-                    <h2>Partner with Devfund.net today</h2>
+                    <h2>Partner with {domain} today</h2>
                     <p>
                     Create your Profile to make a partnership
                     </p>
@@ -224,7 +227,7 @@ const Partner = () => {
             />
             <h2 className='mb-4 tw-text-blue-300'>Thank you for your <br /> Partnership Application!</h2>
             <div className='tw-text-gray-500'>
-              <p>You are now minutes away to joining devfund.net team. All you need to do right now is click the link in the Verification email that we have just sent you. If you still haven&apos;t received it, please check your spam inbox. Your verification link will redirect you to our Marketplace hub where you can login and check out your application status.</p>
+              <p>You are now minutes away to joining {domain} team. All you need to do right now is click the link in the Verification email that we have just sent you. If you still haven&apos;t received it, please check your spam inbox. Your verification link will redirect you to our Marketplace hub where you can login and check out your application status.</p>
               <p className='mb-4'>You can now take part in actually building out an asset by sending proposals, partnering with brands, joining teams.</p>
             </div>
             <div className="d-grid">

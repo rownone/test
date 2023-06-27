@@ -2,31 +2,17 @@ import Link from "next/link"
 import Navigation from '../components/navigation';
 import Footer from '../components/footer';
 import Logo from '../components/logo';
-
-const config = {
-  DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
-}
-
-async function getData() {
-  const url = `https://api1.contrib.co/v2/domains/getdomainconfig?key=5c1bde69a9e783c7edc2e603d8b25023&domain=${config.DOMAIN}`
-  const res = await fetch(url)
-  
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
- 
-  return res.json()
-}
+import { getData, getDomain } from '../lib/data';
 
 export default async function Home() {
-  const data = await getData();
-  console.log('data',data)
+  const c = await getData();
+  const domain = await getDomain();
+  const background = c.data.background_url!==null?c.data.background_url:'https://cdn.vnoc.com/background/tech4.jpg';
   return (
     <>
       <Navigation />
       <section 
-        style={{ backgroundImage: `url('https://cdn.vnoc.com/background/tech4.jpg')` }}
+        style={{ backgroundImage: `url('${background}')` }}
         className="tw-min-h-[calc(100vh-56px-74px)] tw-bg-cover tw-bg-no-repeat tw-relative tw-text-white tw-bg-[50%] tw-py-12 tw-flex tw-w-full tw-items-center"
       >
         <div className="tw-bg-[rgba(3,38,51,0.85)] tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-absolute"></div>
@@ -52,7 +38,7 @@ export default async function Home() {
                   Buy
                 </h3>
                 <h4 className="tw-flex tw-mb-5 tw-flex-col tw-text-lg tw-font-medium tw-text-gray-500">
-                  {config.DOMAIN}
+                  {domain}
                 </h4>
                 <div className="mb-3 d-grid">
                   <Link href="/buy" className="btn btn-primary btn-lg"> Make An Offer </Link>
@@ -66,7 +52,7 @@ export default async function Home() {
                   PARTNER
                 </h3>
                 <h4 className="tw-flex tw-mb-5 tw-flex-col tw-text-lg tw-font-medium tw-text-gray-500">
-                  {config.DOMAIN}
+                  {domain}
                 </h4>
                 <div className="mb-3 d-grid">
                   <Link href="/partner" className="btn btn-primary btn-lg"> Submit Partnership </Link>
@@ -80,12 +66,12 @@ export default async function Home() {
                   JOIN
                 </h3>
                 <h4 className="tw-flex tw-mb-5 tw-flex-col tw-text-lg tw-font-medium tw-text-gray-500">
-                  {config.DOMAIN} Community
+                  {domain} Community
                 </h4>
                 <div className="mb-3 d-grid">
-                  <a target="_blank" href={"https://www.contrib.com/signup/firststep?domain="+config.DOMAIN} className="btn btn-primary btn-lg"> Join Now </a>
+                  <a target="_blank" href={"https://www.contrib.com/signup/firststep?domain="+domain} className="btn btn-primary btn-lg"> Join Now </a>
                 </div>
-                <p>Join our community of 150,000 <br /> {config.DOMAIN} members over at Contrib.</p>
+                <p>Join our community of 150,000 <br /> {domain} members over at Contrib.</p>
               </div>
             </div>
           </div>
