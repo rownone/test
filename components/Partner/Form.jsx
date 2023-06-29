@@ -69,35 +69,34 @@ export default function PartnerForm ({countries, setSuccess, setEmailCode}) {
   const [errors, setErrors] = useState(initialErrors);
   const [emailExist, setEmailExist] = useState('');
 
-  const validateErrors = () => {
-    let dataErrors;
-    if(data.step===1){
-      dataErrors = {
-        partnershiptypeError: data.partnershiptype?'':"Partnership Type is required.",
-        fnameError: data.fname?'':"First name is required.",
-        lnameError: data.lname?'':"Last name is required.",
-        emailError: (data.email?'':"Email is required") || (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ?"":"Invalid Email"),
-        passwordError: data.password?'':"Password is required.",
-        cpasswordError: (data.cpassword?'':"Confirm password is required.") || (data.password!==data.cpassword?'Confirm password did not match.':""),
-        messageError: data.message?'':"Message is required."
-      }
-    }else if(data.step===2){
-      dataErrors = {
-        websiteError: (data.website?'':"Website is required.") || (/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g.test(data.website)?"":"Invalid website."),
-        phoneError: (data.phone?'':"Phone is required.") || (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.phone)?"":"Invalid Phone."),
-        countryError: data.country?'':"Country is required.",
-        cityError: data.city?'':"City is required."
-      }
-    }else if(data.step===3){
-      dataErrors = {
-        companytitleError: data.companytitle?'':"Company Title is required.",
-        companydescError: data.companydesc?'':"Company description is required."
-      }
-    }
-    setErrors(dataErrors);
-  }
-
   useEffect(() => {
+    const validateErrors = () => {
+      let dataErrors;
+      if(data.step===1){
+        dataErrors = {
+          partnershiptypeError: data.partnershiptype?'':"Partnership Type is required.",
+          fnameError: data.fname?'':"First name is required.",
+          lnameError: data.lname?'':"Last name is required.",
+          emailError: (data.email?'':"Email is required") || (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ?"":"Invalid Email"),
+          passwordError: data.password?'':"Password is required.",
+          cpasswordError: (data.cpassword?'':"Confirm password is required.") || (data.password!==data.cpassword?'Confirm password did not match.':""),
+          messageError: data.message?'':"Message is required."
+        }
+      }else if(data.step===2){
+        dataErrors = {
+          websiteError: (data.website?'':"Website is required.") || (/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g.test(data.website)?"":"Invalid website."),
+          phoneError: (data.phone?'':"Phone is required.") || (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\\s\\./0-9]*$/g.test(data.phone)?"":"Invalid Phone."),
+          countryError: data.country?'':"Country is required.",
+          cityError: data.city?'':"City is required."
+        }
+      }else if(data.step===3){
+        dataErrors = {
+          companytitleError: data.companytitle?'':"Company Title is required.",
+          companydescError: data.companydesc?'':"Company description is required."
+        }
+      }
+      setErrors(dataErrors);
+    }
     validateErrors()
   }, [data]);
 
