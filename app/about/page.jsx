@@ -6,8 +6,7 @@ const About = () => {
   
   return (
     <>
-
-    <Script src={"https://tools.contrib.com/pages/aboutnew?d="+domain+"&container=aboutnew-script"}/>
+      {/*<Script src={"https://tools.contrib.com/pages/aboutnew?d="+domain+"&container=aboutnew-script"}/>*/}
        <div className="aboutnew-script"></div>
     </>
    

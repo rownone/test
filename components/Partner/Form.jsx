@@ -69,10 +69,6 @@ export default function PartnerForm ({countries, setSuccess, setEmailCode}) {
   const [errors, setErrors] = useState(initialErrors);
   const [emailExist, setEmailExist] = useState('');
 
-  useEffect(() => {
-    validateErrors()
-  }, [data]);
-
   const validateErrors = () => {
     let dataErrors;
     if(data.step===1){
@@ -100,6 +96,10 @@ export default function PartnerForm ({countries, setSuccess, setEmailCode}) {
     }
     setErrors(dataErrors);
   }
+
+  useEffect(() => {
+    validateErrors()
+  }, [data]);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
