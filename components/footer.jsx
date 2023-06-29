@@ -1,16 +1,14 @@
 import Link from "next/link"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse,faBookmark,faBook,faCube } from '@fortawesome/free-solid-svg-icons'
-const footer = () => {
-  const config = {
-    DOMAIN: process.env.NEXT_PUBLIC_VERCEL_URL
-  }
+
+const Footer = ({domain}) => {
   return (
     <footer className="tw-text-white tw-bg-black tw-py-6">
       <div className="container">
         <div className="row">
           <div className="col-xl-6">
-            &copy; {new Date().getFullYear()} {config.DOMAIN}. All Rights Reserved.
+            &copy; {new Date().getFullYear()} {domain}. All Rights Reserved.
           </div>
           <div className="col-xl-6 text-md-end">
             <ul className="mb-0 list-inline">
@@ -54,4 +52,4 @@ const footer = () => {
   )
 }
 
-export default footer
+export default Footer
