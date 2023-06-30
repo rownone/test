@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 const navigation = ({domain}) => {
+  
   return (
     <Navbar bg="primary" variant="dark" expand="lg">
       <Container>
