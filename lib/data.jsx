@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-
 export function getHost() {
   var os = require("os");
   //console.log('os',os)
   var hostname = os.hostname();
+
   return hostname;
 }
 

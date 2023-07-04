@@ -6,14 +6,14 @@ const page = async () => {
 	const VERCEL_URL = process.env.VERCEL_URL;
 	const NEXT_PUBLIC_VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 	const dictionary = Object.entries(process.env);
-	const host = getHost();
-	const referer = await getScript('https://tools.contrib.com/site/gethost');
+	//const host = getHost();
+	//const referer = await getScript('https://tools.contrib.com/site/gethost');
 	//console.log('referer',referer)
 	return (
 		<>
 			<div >test page</div>
-			<p>referer: {referer}</p>
-			<p>host: {host}</p>
+			{/*<p>referer: {referer}</p>
+			<p>host: {host}</p>*/}
 			<p>{VERCEL_URL}</p>
 			<p>{NEXT_PUBLIC_VERCEL_URL}</p>
 			{/*
