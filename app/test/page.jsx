@@ -1,14 +1,16 @@
 import Script from 'next/script';
-import { getDomain } from '../../lib/data';
+import { getDomain,getHost } from '../../lib/data';
 
 const page = async () => {
 	const domain = getDomain();
 	const VERCEL_URL = process.env.VERCEL_URL;
 	const NEXT_PUBLIC_VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 	const dictionary = Object.entries(process.env);
+	const host = getHost();
 	return (
 		<>
 			<div >test page</div>
+			<p>host: {host}</p>
 			<p>{VERCEL_URL}</p>
 			<p>{NEXT_PUBLIC_VERCEL_URL}</p>
 			{/*

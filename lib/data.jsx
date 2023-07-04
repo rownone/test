@@ -1,5 +1,13 @@
 import axios from 'axios'
 
+
+export function getHost() {
+  var os = require("os");
+  //console.log('os',os)
+  var hostname = os.hostname();
+  return hostname;
+}
+
 export function getDomain() {
   //return process.env.NEXT_PUBLIC_VERCEL_URL==='localhost:3000'?'javapoint.com':process.env.NEXT_PUBLIC_VERCEL_URL;
   return process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL;
