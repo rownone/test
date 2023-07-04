@@ -8,6 +8,18 @@ export function getHost() {
   return hostname;
 }
 
+export async function getHost2() {
+  const domain = process.env.NEXT_PUBLIC_VERCEL_URL
+  const url = `https://tools.contrib.com/site/gethost`
+  const res = await fetch(url)
+  console.log('res',res)
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+  
+  return res.json()
+}
+
 export function getDomain() {
   //return process.env.NEXT_PUBLIC_VERCEL_URL==='localhost:3000'?'javapoint.com':process.env.NEXT_PUBLIC_VERCEL_URL;
   return process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL;

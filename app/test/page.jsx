@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { getDomain,getHost } from '../../lib/data';
+import { getDomain,getHost,getScript } from '../../lib/data';
 
 const page = async () => {
 	const domain = getDomain();
@@ -7,9 +7,12 @@ const page = async () => {
 	const NEXT_PUBLIC_VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 	const dictionary = Object.entries(process.env);
 	const host = getHost();
+	const referer = await getScript('https://tools.contrib.com/site/gethost');
+	//console.log('referer',referer)
 	return (
 		<>
 			<div >test page</div>
+			<p>referer: {referer}</p>
 			<p>host: {host}</p>
 			<p>{VERCEL_URL}</p>
 			<p>{NEXT_PUBLIC_VERCEL_URL}</p>
