@@ -3,11 +3,17 @@ import { getDomain } from '../../lib/data';
 
 const page = async () => {
 	const domain = getDomain();
+	const VERCEL_URL = process.env.VERCEL_URL;
+	const NEXT_PUBLIC_VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 	return (
 		<>
 			<div >test page</div>
+			<p>{VERCEL_URL}</p>
+			<p>{NEXT_PUBLIC_VERCEL_URL}</p>
+			{/*
 			<Script src={"https://tools.contrib.com/widget/fheader?d="+domain+"&container=fheader-script"}/>
       <div className="fheader-script"></div>
+			*/}
 		</>
   )
 }
