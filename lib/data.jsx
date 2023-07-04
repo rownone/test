@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export function getDomain() {
-  return process.env.NEXT_PUBLIC_VERCEL_URL==='localhost:3000'?'javapoint.com':process.env.NEXT_PUBLIC_VERCEL_URL;
+  //return process.env.NEXT_PUBLIC_VERCEL_URL==='localhost:3000'?'javapoint.com':process.env.NEXT_PUBLIC_VERCEL_URL;
+  return process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL;
 }
 
 export async function getData() {
